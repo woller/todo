@@ -14,6 +14,7 @@ components:
     <%= components_for Team %>
     <%= components_for User %>
     <%= components_for Scaffolding::CompletelyConcrete::TangibleThing unless scaffolding_things_disabled? %>
+    <%= components_for Project %>
     <%# 🚅 super scaffolding will insert new components above this line. %>
   parameters:
     id:
@@ -26,5 +27,5 @@ paths:
   <%= paths_for Team %>
   <%= paths_for User %>
   <%= paths_for Scaffolding::CompletelyConcrete::TangibleThing unless scaffolding_things_disabled? %>
+  <%= paths_for Project %>
   <%# 🚅 super scaffolding will insert new paths above this line. %>
-  

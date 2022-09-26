@@ -1,0 +1,93 @@
+/teams/{team_id}/projects:
+  get:
+    tags:
+      - "Projects"
+    summary: "List Projects"
+    operationId: listProjects
+    parameters:
+      - name: team_id
+        in: path
+        required: true
+        schema:
+          type: string
+    responses:
+      "404":
+        description: "Not Found"
+      "200":
+        description: "OK"
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: array
+                  items: 
+                    $ref: "#/components/schemas/Project::Attributes"
+                has_more:
+                  type: boolean
+  post:
+    tags:
+      - "Projects"
+    summary: "Create Project"
+    operationId: createProjects
+    parameters:
+      - name: team_id
+        in: path
+        required: true
+        schema:
+          type: string
+    responses:
+      "404":
+        description: "Not Found"
+      "201":
+        description: "Created"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Project::Parameters"
+/projects/{id}:
+  get:
+    tags:
+      - "Projects"
+    summary: "Fetch Project"
+    operationId: getProjects
+    parameters:
+      - $ref: "#/components/parameters/id"
+    responses:
+      "404":
+        description: "Not Found"
+      "200":
+        description: "OK"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Project::Attributes"
+  put:
+    tags:
+      - "Projects"
+    summary: "Update Project"
+    operationId: updateProjects
+    parameters:
+      - $ref: "#/components/parameters/id"
+    responses:
+      "404":
+        description: "Not Found"
+      "200":
+        description: "OK"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Project::Parameters"
+  delete:
+    tags:
+      - "Projects"
+    summary: "Remove Project"
+    operationId: removeProjects
+    parameters:
+      - $ref: "#/components/parameters/id"
+    responses:
+      "404":
+        description: "Not Found"
+      "200":
+        description: "OK"
