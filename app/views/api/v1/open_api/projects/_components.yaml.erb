@@ -4,6 +4,7 @@ Project::Attributes:
     <%= attribute :id %>
     <%= attribute :team_id %>
     <%= attribute :name %>
+    <%= attribute :description %>
     <%# 🚅 super scaffolding will insert new attributes above this line. %>
     <%= attribute :created_at %>
     <%= attribute :updated_at %>
@@ -12,4 +13,5 @@ Project::Parameters:
   type: object
   properties:
     <%= parameter :name %>
+    <%= parameter :description %>
     <%# 🚅 super scaffolding will insert new parameter above this line. %>

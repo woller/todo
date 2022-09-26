@@ -40,6 +40,7 @@ class Api::V1::ProjectsController < Api::V1::ApplicationController
       strong_params = params.require(:project).permit(
         *permitted_fields,
         :name,
+        :description,
         # 🚅 super scaffolding will insert new fields above this line.
         *permitted_arrays,
         # 🚅 super scaffolding will insert new arrays above this line.

@@ -9,6 +9,7 @@ class Project < ApplicationRecord
   has_many :goals, dependent: :destroy
   # 🚅 add has_many associations above.
 
+  has_rich_text :description
   # 🚅 add has_one associations above.
 
   # 🚅 add scopes above.
