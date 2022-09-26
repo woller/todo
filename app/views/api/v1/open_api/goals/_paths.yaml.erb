@@ -1,0 +1,93 @@
+/projects/{project_id}/goals:
+  get:
+    tags:
+      - "Goals"
+    summary: "List Goals"
+    operationId: listGoals
+    parameters:
+      - name: project_id
+        in: path
+        required: true
+        schema:
+          type: string
+    responses:
+      "404":
+        description: "Not Found"
+      "200":
+        description: "OK"
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: array
+                  items: 
+                    $ref: "#/components/schemas/Goal::Attributes"
+                has_more:
+                  type: boolean
+  post:
+    tags:
+      - "Goals"
+    summary: "Create Goal"
+    operationId: createGoals
+    parameters:
+      - name: project_id
+        in: path
+        required: true
+        schema:
+          type: string
+    responses:
+      "404":
+        description: "Not Found"
+      "201":
+        description: "Created"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Goal::Parameters"
+/goals/{id}:
+  get:
+    tags:
+      - "Goals"
+    summary: "Fetch Goal"
+    operationId: getGoals
+    parameters:
+      - $ref: "#/components/parameters/id"
+    responses:
+      "404":
+        description: "Not Found"
+      "200":
+        description: "OK"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Goal::Attributes"
+  put:
+    tags:
+      - "Goals"
+    summary: "Update Goal"
+    operationId: updateGoals
+    parameters:
+      - $ref: "#/components/parameters/id"
+    responses:
+      "404":
+        description: "Not Found"
+      "200":
+        description: "OK"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Goal::Parameters"
+  delete:
+    tags:
+      - "Goals"
+    summary: "Remove Goal"
+    operationId: removeGoals
+    parameters:
+      - $ref: "#/components/parameters/id"
+    responses:
+      "404":
+        description: "Not Found"
+      "200":
+        description: "OK"

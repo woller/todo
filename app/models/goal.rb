@@ -1,19 +1,19 @@
-class Project < ApplicationRecord
+class Goal < ApplicationRecord
   # 🚅 add concerns above.
 
   # 🚅 add attribute accessors above.
 
-  belongs_to :team
+  belongs_to :project
   # 🚅 add belongs_to associations above.
 
-  has_many :goals, dependent: :destroy
   # 🚅 add has_many associations above.
 
+  has_one :team, through: :project
   # 🚅 add has_one associations above.
 
   # 🚅 add scopes above.
 
-  validates :name, presence: true
+  validates :description, presence: true
   # 🚅 add validations above.
 
   # 🚅 add callbacks above.

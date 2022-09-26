@@ -1,5 +1,6 @@
 default:
   models:
+    Goal: read
     Project: read
     Team: read
     Membership:
@@ -29,6 +30,7 @@ admin:
     - admin
     - editor
   models:
+    Goal: manage
     Project: manage
     Team: manage
     Membership: manage
