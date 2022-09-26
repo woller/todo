@@ -42,6 +42,7 @@ class Api::V1::ProjectsController < Api::V1::ApplicationController
         :name,
         :description,
         :status,
+        :lead_id,
         # 🚅 super scaffolding will insert new fields above this line.
         *permitted_arrays,
         # 🚅 super scaffolding will insert new arrays above this line.

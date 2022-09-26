@@ -24,6 +24,7 @@
                 <%= render "shared/tables/select_all" %>
                 <th><%= t('.fields.name.heading') %></th>
                 <th><%= t('.fields.status.heading') %></th>
+                <th><%= t('.fields.lead.heading') %></th>
                 <%# 🚅 super scaffolding will insert new field headers above this line. %>
                 <th><%= t('.fields.created_at.heading') %></th>
                 <th class="text-right"></th>
@@ -36,6 +37,7 @@
                     <%= render "shared/tables/checkbox", object: project %>
                     <td><%= render 'shared/attributes/text', attribute: :name, url: [:account, project] %></td>
                     <td><%= render 'shared/attributes/option', attribute: :status %></td>
+                    <td><%= render 'shared/attributes/belongs_to', attribute: :lead %></td>
                     <%# 🚅 super scaffolding will insert new fields above this line. %>
                     <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
                     <td class="buttons">

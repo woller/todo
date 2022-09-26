@@ -8,6 +8,8 @@
       <%= render 'shared/fields/text_field', method: :name, options: {autofocus: true} %>
       <%= render 'shared/fields/trix_editor', method: :description %>
       <%= render 'shared/fields/buttons', method: :status %>
+      <%= render 'shared/fields/super_select', method: :lead_id, options: {}, html_options: {},
+        choices: @project.valid_leads.map { |membership| [membership.label_string, membership.id] } %>
       <%# 🚅 super scaffolding will insert new fields above this line. %>
     <% end %>
 

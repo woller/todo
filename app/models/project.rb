@@ -4,6 +4,7 @@ class Project < ApplicationRecord
   # 🚅 add attribute accessors above.
 
   belongs_to :team
+  belongs_to :lead, class_name: "Membership", optional: true
   # 🚅 add belongs_to associations above.
 
   has_many :goals, dependent: :destroy
@@ -15,11 +16,16 @@ class Project < ApplicationRecord
   # 🚅 add scopes above.
 
   validates :name, presence: true
+  validates :lead, scope: true
   # 🚅 add validations above.
 
   # 🚅 add callbacks above.
 
   # 🚅 add delegations above.
+
+  def valid_leads
+    team.memberships.current_and_invited
+  end
 
   # 🚅 add methods above.
 end

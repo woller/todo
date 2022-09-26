@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_26_193025) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_26_193503) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -189,6 +189,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_26_193025) do
     t.datetime "updated_at", null: false
     t.text "description"
     t.string "status", default: "planned"
+    t.bigint "lead_id"
+    t.index ["lead_id"], name: "index_projects_on_lead_id"
     t.index ["team_id"], name: "index_projects_on_team_id"
   end
 
@@ -368,6 +370,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_26_193025) do
   add_foreign_key "oauth_access_tokens", "oauth_applications", column: "application_id"
   add_foreign_key "oauth_applications", "teams"
   add_foreign_key "oauth_stripe_accounts", "users"
+  add_foreign_key "projects", "memberships", column: "lead_id"
   add_foreign_key "projects", "teams"
   add_foreign_key "scaffolding_absolutely_abstract_creative_concepts", "teams"
   add_foreign_key "scaffolding_absolutely_abstract_creative_concepts_collaborators", "memberships"

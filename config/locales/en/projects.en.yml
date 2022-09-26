@@ -39,6 +39,12 @@ en:
           planned: Planned
           started: Started
           completed: Completed
+      lead_id: &lead
+        _: &lead_id Lead
+        label: *lead_id
+        heading: *lead_id
+        placeholder: None
+      lead: *lead
       # 🚅 super scaffolding will insert new fields above this line.
       created_at:
         _: &created_at Added
@@ -98,6 +104,7 @@ en:
         name: *name
         description: *description
         status: *status
+        lead_id: *lead_id
         # 🚅 super scaffolding will insert new activerecord attributes above this line.
         created_at: *created_at
         updated_at: *updated_at
