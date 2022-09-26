@@ -1,10 +1,7 @@
-json.extract! project,
+json.extract! tag,
   :id,
   :team_id,
   :name,
-  :status,
-  :lead_id,
-  :tag_ids,
   # 🚅 super scaffolding will insert new fields above this line.
   :created_at,
   :updated_at

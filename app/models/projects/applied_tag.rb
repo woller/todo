@@ -1,25 +1,28 @@
-class Team < ApplicationRecord
-  include Teams::Base
-  include Webhooks::Outgoing::TeamSupport
+class Projects::AppliedTag < ApplicationRecord
   # 🚅 add concerns above.
 
+  # 🚅 add attribute accessors above.
+
+  belongs_to :project
+  belongs_to :tag, class_name: "Projects::Tag"
   # 🚅 add belongs_to associations above.
 
-  has_many :projects, dependent: :destroy
-  has_many :projects_tags, class_name: "Projects::Tag", dependent: :destroy
   # 🚅 add has_many associations above.
-
-  # 🚅 add oauth providers above.
 
   # 🚅 add has_one associations above.
 
   # 🚅 add scopes above.
 
+  validates :tag, scope: true
   # 🚅 add validations above.
 
   # 🚅 add callbacks above.
 
   # 🚅 add delegations above.
+
+  def valid_tags
+    project.valid_tags
+  end
 
   # 🚅 add methods above.
 end

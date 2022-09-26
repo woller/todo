@@ -10,6 +10,8 @@
       <%= render 'shared/fields/buttons', method: :status %>
       <%= render 'shared/fields/super_select', method: :lead_id, options: {}, html_options: {},
         choices: @project.valid_leads.map { |membership| [membership.label_string, membership.id] } %>
+      <%= render 'shared/fields/super_select', method: :tag_ids, html_options: {multiple: true},
+        choices: @project.valid_tags.map { |tag| [tag.label_string, tag.id] } %>
       <%# 🚅 super scaffolding will insert new fields above this line. %>
     <% end %>
 

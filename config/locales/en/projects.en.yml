@@ -45,6 +45,12 @@ en:
         heading: *lead_id
         placeholder: None
       lead: *lead
+      tag_ids: &tags
+        _: &tag_ids Tags
+        label: *tag_ids
+        heading: *tag_ids
+        placeholder: None
+      tags: *tags
       # 🚅 super scaffolding will insert new fields above this line.
       created_at:
         _: &created_at Added
@@ -105,6 +111,7 @@ en:
         description: *description
         status: *status
         lead_id: *lead_id
+        tag_ids: *tag_ids
         # 🚅 super scaffolding will insert new activerecord attributes above this line.
         created_at: *created_at
         updated_at: *updated_at

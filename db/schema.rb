@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_26_193503) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_26_194311) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -194,6 +194,23 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_26_193503) do
     t.index ["team_id"], name: "index_projects_on_team_id"
   end
 
+  create_table "projects_applied_tags", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_projects_applied_tags_on_project_id"
+    t.index ["tag_id"], name: "index_projects_applied_tags_on_tag_id"
+  end
+
+  create_table "projects_tags", force: :cascade do |t|
+    t.bigint "team_id", null: false
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["team_id"], name: "index_projects_tags_on_team_id"
+  end
+
   create_table "scaffolding_absolutely_abstract_creative_concepts", force: :cascade do |t|
     t.bigint "team_id", null: false
     t.string "name"
@@ -372,6 +389,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_26_193503) do
   add_foreign_key "oauth_stripe_accounts", "users"
   add_foreign_key "projects", "memberships", column: "lead_id"
   add_foreign_key "projects", "teams"
+  add_foreign_key "projects_applied_tags", "projects"
+  add_foreign_key "projects_applied_tags", "projects_tags", column: "tag_id"
+  add_foreign_key "projects_tags", "teams"
   add_foreign_key "scaffolding_absolutely_abstract_creative_concepts", "teams"
   add_foreign_key "scaffolding_absolutely_abstract_creative_concepts_collaborators", "memberships"
   add_foreign_key "scaffolding_absolutely_abstract_creative_concepts_collaborators", "scaffolding_absolutely_abstract_creative_concepts", column: "creative_concept_id"

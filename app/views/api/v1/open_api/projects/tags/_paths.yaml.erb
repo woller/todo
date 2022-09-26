@@ -1,0 +1,93 @@
+/teams/{team_id}/projects/tags:
+  get:
+    tags:
+      - "Projects/Tags"
+    summary: "List Tags"
+    operationId: listProjectsTags
+    parameters:
+      - name: team_id
+        in: path
+        required: true
+        schema:
+          type: string
+    responses:
+      "404":
+        description: "Not Found"
+      "200":
+        description: "OK"
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                data:
+                  type: array
+                  items: 
+                    $ref: "#/components/schemas/Projects::Tag::Attributes"
+                has_more:
+                  type: boolean
+  post:
+    tags:
+      - "Projects/Tags"
+    summary: "Create Tag"
+    operationId: createProjectsTags
+    parameters:
+      - name: team_id
+        in: path
+        required: true
+        schema:
+          type: string
+    responses:
+      "404":
+        description: "Not Found"
+      "201":
+        description: "Created"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Projects::Tag::Parameters"
+/projects/tags/{id}:
+  get:
+    tags:
+      - "Projects/Tags"
+    summary: "Fetch Tag"
+    operationId: getProjectsTags
+    parameters:
+      - $ref: "#/components/parameters/id"
+    responses:
+      "404":
+        description: "Not Found"
+      "200":
+        description: "OK"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Projects::Tag::Attributes"
+  put:
+    tags:
+      - "Projects/Tags"
+    summary: "Update Tag"
+    operationId: updateProjectsTags
+    parameters:
+      - $ref: "#/components/parameters/id"
+    responses:
+      "404":
+        description: "Not Found"
+      "200":
+        description: "OK"
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Projects::Tag::Parameters"
+  delete:
+    tags:
+      - "Projects/Tags"
+    summary: "Remove Tag"
+    operationId: removeProjectsTags
+    parameters:
+      - $ref: "#/components/parameters/id"
+    responses:
+      "404":
+        description: "Not Found"
+      "200":
+        description: "OK"

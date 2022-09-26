@@ -70,6 +70,10 @@ Rails.application.routes.draw do
         resources :projects do
           resources :goals
         end
+
+        namespace :projects do
+          resources :tags
+        end
       end
     end
   end
