@@ -31,6 +31,14 @@ en:
         _: &description Description
         label: *description
         heading: *description
+      status:
+        _: &status Status
+        label: *status
+        heading: *status
+        options:
+          planned: Planned
+          started: Started
+          completed: Completed
       # 🚅 super scaffolding will insert new fields above this line.
       created_at:
         _: &created_at Added
@@ -89,6 +97,7 @@ en:
       project:
         name: *name
         description: *description
+        status: *status
         # 🚅 super scaffolding will insert new activerecord attributes above this line.
         created_at: *created_at
         updated_at: *updated_at

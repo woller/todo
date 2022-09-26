@@ -20,6 +20,7 @@ class Api::V1::ProjectsControllerTest < Api::Test
       project = Project.find(project_data["id"])
 
       assert_equal_or_nil project_data['name'], project.name
+      assert_equal_or_nil project_data['status'], project.status
       # 🚅 super scaffolding will insert new fields above this line.
 
       assert_equal project_data["team_id"], project.team_id
